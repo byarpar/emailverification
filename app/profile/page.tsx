@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { AccountProfileImage } from "@/components/AccountProfileImage"
 
 interface UserProfile {
@@ -46,14 +45,6 @@ export default function ProfilePage() {
     fetchUserProfile()
   }, [router])
 
-  const handleLogout = async () => {
-    try {
-      await fetch('/api/logout', { method: 'POST' })
-      router.push('/login')
-    } catch (error) {
-      console.error('Error logging out:', error)
-    }
-  }
 
   if (!userProfile) {
     return <div>Loading...</div>
@@ -90,8 +81,6 @@ export default function ProfilePage() {
               <p>Locale: {userProfile.facebookInfo.locale}</p>
             </div>
           )}
-
-          <Button onClick={handleLogout} variant="outline">Logout</Button>
         </CardContent>
       </Card>
     </div>

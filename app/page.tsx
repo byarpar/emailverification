@@ -33,9 +33,6 @@ export default function Home() {
             <Link href="/register" className="text-blue-600 hover:underline">Register</Link>
           </>
         )}
-        {isLoggedIn && (
-          <Link href="/api/logout" className="text-blue-600 hover:underline">Logout</Link>
-        )}
       </div>
     </div>
   )
